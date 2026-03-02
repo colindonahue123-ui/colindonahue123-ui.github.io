@@ -268,32 +268,6 @@
     </a>
   </div>
 
-  <!-- PRESENTATION -->
-  <div class="section">
-    <div class="section-title">Presentation Slides</div>
-    <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-      <img id="slideImg" src="slides/slide-01.png" style="width:100%; display:block;" alt="Slide 1" />
-      <div style="display:flex; align-items:center; justify-content:space-between; padding: 0.8rem 1.2rem; background: var(--lightblue); border-top: 1px solid var(--border);">
-        <button onclick="changeSlide(-1)" style="background:var(--navy);color:#fff;border:none;padding:0.4rem 1rem;border-radius:4px;cursor:pointer;font-size:0.85rem;">← Prev</button>
-        <span id="slideCounter" style="font-size:0.82rem;color:var(--muted);font-family:'DM Sans',sans-serif;">1 / 41</span>
-        <button onclick="changeSlide(1)" style="background:var(--navy);color:#fff;border:none;padding:0.4rem 1rem;border-radius:4px;cursor:pointer;font-size:0.85rem;">Next →</button>
-      </div>
-    </div>
-    <script>
-      var current = 1;
-      var total = 41;
-      function changeSlide(dir) {
-        current += dir;
-        if (current < 1) current = total;
-        if (current > total) current = 1;
-        var num = current.toString().padStart(2, '0');
-        document.getElementById('slideImg').src = 'slides/slide-' + num + '.png';
-        document.getElementById('slideImg').alt = 'Slide ' + current;
-        document.getElementById('slideCounter').textContent = current + ' / ' + total;
-      }
-    </script>
-  </div>
-
 </div>
 </body>
 </html>
