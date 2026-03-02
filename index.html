@@ -4,245 +4,210 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Colin Donahue</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --cream: #f5f0e8;
-      --ink: #1a1a18;
-      --muted: #6b6758;
-      --accent: #2c5f8a;
-      --rule: #d4cfc4;
+      --bg: #ffffff;
+      --navy: #0f2d4a;
+      --blue: #1a5e9a;
+      --lightblue: #e8f2fb;
+      --muted: #6b7c8f;
+      --border: #dde6ef;
+      --text: #1c2b3a;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-weight: 300;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
       line-height: 1.7;
     }
 
-    /* HEADER */
-    header {
-      border-bottom: 2px solid var(--ink);
-      padding: 3rem 0 2rem;
-      max-width: 860px;
+    .topbar {
+      background: var(--navy);
+      padding: 0.6rem 0;
+    }
+    .topbar-inner {
+      max-width: 760px;
       margin: 0 auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      gap: 2rem;
-    }
-
-    .name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    .tagline {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 0.6rem;
-    }
-
-    .contact-links {
+      padding: 0 2rem;
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.3rem;
+      justify-content: flex-end;
+      gap: 1.5rem;
     }
-
-    .contact-links a {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
+    .topbar a {
+      color: #a8c8e8;
+      font-size: 0.8rem;
       text-decoration: none;
       letter-spacing: 0.03em;
     }
+    .topbar a:hover { color: #fff; }
 
-    .contact-links a:hover { text-decoration: underline; }
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.8rem;
+    }
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tag {
+      background: rgba(255,255,255,0.12);
+      color: #c8dff0;
+      font-size: 0.78rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+    .hero-bio {
+      max-width: 560px;
+      margin: 0 auto;
+      color: #b8d4ea;
+      font-size: 0.97rem;
+      line-height: 1.75;
+    }
 
-    /* MAIN LAYOUT */
-    main {
-      max-width: 860px;
+    .container {
+      max-width: 760px;
       margin: 0 auto;
       padding: 0 2rem 4rem;
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 0 3rem;
     }
 
-    /* SECTIONS */
-    section {
-      border-top: 1px solid var(--rule);
+    .section {
       padding: 2.5rem 0;
-      display: contents;
+      border-bottom: 1px solid var(--border);
     }
+    .section:last-child { border-bottom: none; }
 
-    .section-label {
-      font-family: 'IBM Plex Mono', monospace;
+    .section-title {
       font-size: 0.7rem;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--rule);
+      color: var(--blue);
+      margin-bottom: 1.5rem;
     }
 
-    .section-body {
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    /* ABOUT */
-    .about-text {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--ink);
-    }
-
-    /* EXPERIENCE */
-    .job {
-      margin-bottom: 2rem;
-    }
-
+    .job { margin-bottom: 2rem; }
     .job:last-child { margin-bottom: 0; }
 
-    .job-header {
+    .job-top {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
+      align-items: flex-start;
       flex-wrap: wrap;
-      margin-bottom: 0.2rem;
+      gap: 0.5rem;
+      margin-bottom: 0.15rem;
     }
-
-    .job-title {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.95rem;
+    .job-company {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
     }
-
     .job-date {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       color: var(--muted);
+      background: var(--lightblue);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
       white-space: nowrap;
     }
-
-    .job-company {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
+    .job-title {
+      font-size: 0.88rem;
+      color: var(--blue);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
     }
-
     .job-desc {
       font-size: 0.88rem;
-      color: #3a3a35;
-      line-height: 1.7;
+      color: #3a4f62;
+      line-height: 1.75;
+      padding-left: 1rem;
+    }
+    .job-desc li { margin-bottom: 0.3rem; }
+
+    .edu { margin-bottom: 1.5rem; }
+    .edu:last-child { margin-bottom: 0; }
+    .edu-school { font-size: 1rem; font-weight: 600; color: var(--navy); }
+    .edu-degree { font-size: 0.88rem; color: var(--blue); font-weight: 500; }
+    .edu-detail { font-size: 0.82rem; color: var(--muted); margin-top: 0.1rem; }
+    .edu-thesis {
+      font-size: 0.82rem;
+      color: #3a4f62;
+      margin-top: 0.4rem;
+      padding: 0.6rem 0.8rem;
+      background: var(--lightblue);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 4px 4px 0;
     }
 
-    .job-desc li {
-      margin-left: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    /* SKILLS */
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-
     .skill-tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.05em;
-      padding: 0.3rem 0.7rem;
-      border: 1px solid var(--ink);
-      color: var(--ink);
-    }
-
-    /* EDUCATION */
-    .edu {
-      margin-bottom: 1.5rem;
-    }
-
-    .edu-school {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--accent);
-    }
-
-    .edu-degree {
-      font-size: 0.88rem;
+      font-size: 0.8rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--lightblue);
+      color: var(--navy);
+      border-radius: 4px;
       font-weight: 500;
     }
 
-    .edu-detail {
-      font-size: 0.83rem;
-      color: var(--muted);
-      font-family: 'IBM Plex Mono', monospace;
-    }
-
-    @media (max-width: 620px) {
-      header { grid-template-columns: 1fr; }
-      .contact-links { align-items: flex-start; }
-      main { grid-template-columns: 1fr; }
-      .section-label { border-top: none; padding-top: 0; margin-top: 2.5rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.5rem; }
-      .section-body { border-top: none; padding-top: 1rem; }
+    @media (max-width: 520px) {
+      .job-top { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <div class="name">Colin Donahue</div>
-    <div class="tagline">Antitrust & Competition · Data Science · Economics</div>
-  </div>
-  <div class="contact-links">
-    <a href="mailto:colin.b.donahue@gmail.com">colin.b.donahue@gmail.com</a>
+<div class="topbar">
+  <div class="topbar-inner">
     <a href="http://www.linkedin.com/in/colin-donahue-4311a418a" target="_blank">LinkedIn</a>
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--muted);">610-304-9068</span>
   </div>
-</header>
+</div>
 
-<main>
-
-  <!-- ABOUT -->
-  <div class="section-label">About</div>
-  <div class="section-body">
-    <p class="about-text">
-      I'm an economist and data scientist specializing in antitrust and competition analysis. 
-      My work sits at the intersection of econometrics and big data — using causal inference, 
-      structural modeling, and tools like Databricks and Python to support merger reviews, 
-      litigation matters, and divestiture analysis. I studied Economics at Swarthmore College, 
-      where I wrote my thesis on tobacco regulation using difference-in-difference methods.
-    </p>
+<div class="hero">
+  <h1>Colin Donahue</h1>
+  <div class="hero-tags">
+    <span class="hero-tag">Econometrician</span>
+    <span class="hero-tag">Causal Inference</span>
+    <span class="hero-tag">Big Data</span>
+    <span class="hero-tag">Divestitures</span>
   </div>
+  <p class="hero-bio">
+    Economist and data scientist specializing in antitrust and competition analysis. 
+    I use econometrics, structural modeling, and large-scale data tools to support 
+    merger reviews, litigation matters, and divestiture analysis.
+  </p>
+</div>
 
-  <!-- EXPERIENCE -->
-  <div class="section-label">Experience</div>
-  <div class="section-body">
+<div class="container">
+
+  <div class="section">
+    <div class="section-title">Experience</div>
 
     <div class="job">
-      <div class="job-company">Econic Partners</div>
-      <div class="job-header">
-        <span class="job-title">Senior Research Analyst → Associate</span>
+      <div class="job-top">
+        <div class="job-company">Econic Partners</div>
         <span class="job-date">Jul 2025 – Present</span>
       </div>
+      <div class="job-title">Senior Research Analyst → Associate · Antitrust & Competition</div>
       <ul class="job-desc">
         <li>Rigorous econometric analyses of merger and litigation antitrust matters in retail, healthcare, and technology.</li>
         <li>Assisted with Second Request merger compliance by processing and reviewing client datasets.</li>
@@ -251,11 +216,11 @@
     </div>
 
     <div class="job">
-      <div class="job-company">Charles River Associates</div>
-      <div class="job-header">
-        <span class="job-title">Analyst → Associate, Antitrust & Competition</span>
+      <div class="job-top">
+        <div class="job-company">Charles River Associates</div>
         <span class="job-date">Jun 2022 – May 2025</span>
       </div>
+      <div class="job-title">Analyst → Associate · Antitrust & Competition</div>
       <ul class="job-desc">
         <li>Advanced econometric analysis supporting antitrust merger reviews across manufacturing, pharma, retail, real estate, and software industries.</li>
         <li>Proposed and evaluated divestiture packages for a $20B merger involving 4,000 brick-and-mortar locations using structural analysis and HHI calculations.</li>
@@ -265,28 +230,26 @@
     </div>
 
     <div class="job">
-      <div class="job-company">Swarthmore College, Dept. of Economics</div>
-      <div class="job-header">
-        <span class="job-title">Econometrics Research Assistant</span>
+      <div class="job-top">
+        <div class="job-company">Swarthmore College, Dept. of Economics</div>
         <span class="job-date">May – Aug 2021</span>
       </div>
+      <div class="job-title">Econometrics Research Assistant</div>
       <ul class="job-desc">
         <li>Investigated effects of Paid Family Leave programs on food security in New York households using difference-in-difference and triple difference models in STATA.</li>
       </ul>
     </div>
-
   </div>
 
-  <!-- EDUCATION -->
-  <div class="section-label">Education</div>
-  <div class="section-body">
+  <div class="section">
+    <div class="section-title">Education</div>
 
     <div class="edu">
       <div class="edu-school">Swarthmore College</div>
-      <div class="edu-degree">B.A. Economics · Minor in Mathematics & Statistics</div>
-      <div class="edu-detail">2018 – 2022 · GPA 3.6 · Film & Media Studies</div>
-      <div style="font-size:0.83rem;color:#3a3a35;margin-top:0.4rem;">
-        Thesis: <em>Investigating the effects of Arkansas' 2004 online ban of nicotine product sales on youth tobacco consumption using difference-in-difference regression models.</em>
+      <div class="edu-degree">B.A. Economics · Minor in Mathematics & Statistics · Minor in Film & Media Studies</div>
+      <div class="edu-detail">2018 – 2022 · GPA 3.6</div>
+      <div class="edu-thesis">
+        <strong>Thesis:</strong> Investigating the effects of Arkansas' 2004 online ban of nicotine product sales on youth nicotine regulation using difference-in-difference regression models.
       </div>
     </div>
 
@@ -295,29 +258,27 @@
       <div class="edu-degree">Semester Abroad · Entrepreneurship & Business Technology</div>
       <div class="edu-detail">Madrid, Spain · Spring 2020</div>
     </div>
-
   </div>
 
-  <!-- SKILLS -->
-  <div class="section-label">Skills</div>
-  <div class="section-body">
+  <div class="section">
+    <div class="section-title">Skills</div>
     <div class="skills-grid">
-      <span class="skill-tag">Causal Inference</span>
       <span class="skill-tag">Econometrics</span>
+      <span class="skill-tag">Causal Inference</span>
       <span class="skill-tag">Divestitures</span>
       <span class="skill-tag">Structural Modeling</span>
       <span class="skill-tag">Big Data</span>
       <span class="skill-tag">Python (Pandas)</span>
       <span class="skill-tag">STATA</span>
       <span class="skill-tag">Databricks</span>
+      <span class="skill-tag">Azure</span>
       <span class="skill-tag">ArcGIS</span>
+      <span class="skill-tag">GeoPandas</span>
       <span class="skill-tag">HHI Analysis</span>
       <span class="skill-tag">Event Study</span>
-      <span class="skill-tag">Diff-in-Diff</span>
-    </div>
+      <span class="skill-tag">Diff-in-Diff</span>    </div>
   </div>
 
-</main>
-
+</div>
 </body>
 </html>
