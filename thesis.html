@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thesis | Colin Donahue</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --bg: #ffffff; --navy: #0f2d4a; --blue: #1a5e9a; --lightblue: #e8f2fb; --muted: #6b7c8f; --border: #dde6ef; --text: #1c2b3a; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; }
+    .topbar { background: var(--navy); padding: 0.6rem 0; }
+    .topbar-inner { max-width: 760px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .topbar-nav { display: flex; gap: 1.5rem; }
+    .topbar a { color: #a8c8e8; font-size: 0.8rem; text-decoration: none; letter-spacing: 0.03em; }
+    .topbar a:hover { color: #fff; }
+    .topbar a.active { color: #fff; font-weight: 500; }
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%); padding: 3.5rem 2rem; text-align: center; }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7ab8e8; margin-bottom: 0.8rem; }
+    .hero h1 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: clamp(1.4rem, 3.5vw, 2rem); color: #ffffff; letter-spacing: -0.01em; line-height: 1.35; margin-bottom: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .hero-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: #b8d4ea; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    .section:last-child { border-bottom: none; }
+    .section-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.2rem; }
+    .abstract { font-size: 0.93rem; color: #2a3f52; line-height: 1.85; background: var(--lightblue); padding: 1.2rem 1.4rem; border-left: 3px solid var(--blue); border-radius: 0 6px 6px 0; }
+    .findings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .finding-card { background: var(--lightblue); border-radius: 6px; padding: 1.2rem; }
+    .finding-number { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--blue); line-height: 1; margin-bottom: 0.4rem; }
+    .finding-label { font-size: 0.82rem; font-weight: 500; color: var(--navy); margin-bottom: 0.3rem; }
+    .finding-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+    .method-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .method-tag { font-size: 0.8rem; padding: 0.35rem 0.85rem; background: var(--lightblue); color: var(--navy); border-radius: 4px; font-weight: 500; }
+    .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--navy); color: #fff; font-size: 0.85rem; font-weight: 500; padding: 0.7rem 1.4rem; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .download-btn:hover { background: var(--blue); }
+    .download-btn svg { width: 16px; height: 16px; }
+    @media (max-width: 520px) { .findings-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-nav">
+      <a href="index.html">Home</a>
+      <a href="cases.html">Case Work</a>
+      <a href="thesis.html" class="active">Thesis</a>
+    </div>
+    <a href="http://www.linkedin.com/in/colin-donahue-4311a418a" target="_blank">LinkedIn</a>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Senior Thesis · Swarthmore College · 2022</div>
+    <h1>Exploring the Effects of the 2005 Arkansas Online Ban of Tobacco Sales on Youth Nicotine Consumption</h1>
+    <div class="hero-meta">
+      <span>Colin Donahue</span>
+      <span>·</span>
+      <span>Advanced Econometrics</span>
+      <span>·</span>
+      <span>May 2022</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="section">
+    <div class="section-title">Abstract</div>
+    <p class="abstract">
+      This paper studies the effects of Arkansas's 2005 ban on direct-to-consumer online tobacco sales on youth nicotine consumption. Arkansas was selected as the treatment state due to the absence of significant concurrent tobacco legislation during the 2001–2007 study period, making it an ideal setting for causal identification. Using data from the Youth Risk Behavior Surveillance System (YRBS) between 2001 and 2007, difference-in-differences (DD) models are estimated across three control groups to identify the causal effect of the policy. Results suggest the ban was associated with a 6.67 percentage point reduction in the share of high school youth who smoke any cigarettes, and a 3.41 percentage point decrease in daily youth smokers, relative to all other states. Adult consumers were not significantly affected, suggesting the policy reduced youth access without substantially burdening legal-age consumers. Findings are relevant to ongoing federal debates about whether to extend online nicotine sale restrictions to e-cigarettes.
+    </p>
+  </div>
+  <div class="section">
+    <div class="section-title">Key Findings</div>
+    <div class="findings-grid">
+      <div class="finding-card">
+        <div class="finding-number">6.67pp</div>
+        <div class="finding-label">Reduction in any youth cigarette use</div>
+        <div class="finding-desc">Compared to all states (Control Group 1), controlling for demographics.</div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-number">3.41pp</div>
+        <div class="finding-label">Reduction in daily youth smokers</div>
+        <div class="finding-desc">Casual smokers were more affected than addicted daily smokers.</div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-number">~0</div>
+        <div class="finding-label">Effect on adult consumers</div>
+        <div class="finding-desc">Legal-age consumers were not significantly impacted, suggesting minimal welfare harm.</div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-number">4</div>
+        <div class="finding-label">States with full online bans</div>
+        <div class="finding-desc">Arkansas, New York, Maryland, and Connecticut — none previously studied.</div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Methodology</div>
+    <div class="method-list">
+      <span class="method-tag">Difference-in-Differences</span>
+      <span class="method-tag">Event Study</span>
+      <span class="method-tag">YRBS Data</span>
+      <span class="method-tag">TUS-CPS Data</span>
+      <span class="method-tag">Cluster Bootstrap</span>
+      <span class="method-tag">State & Year Fixed Effects</span>
+      <span class="method-tag">STATA</span>
+      <span class="method-tag">Intent-to-Treat</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Presentation Slides</div>
+    <iframe src="presentation.pdf" width="100%" height="520px" style="border: 1px solid var(--border); border-radius: 6px;">
+      <p>Your browser doesn't support embedded PDFs. <a href="presentation.pdf" target="_blank">Download the presentation instead.</a></p>
+    </iframe>
+  </div>
+  <div class="section">
+    <div class="section-title">Full Paper</div>
+    <a class="download-btn" href="thesis.pdf" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      Download PDF
+    </a>
+  </div>
+</div>
+</body>
+</html>
