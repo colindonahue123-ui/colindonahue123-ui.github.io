@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Case Work | Colin Donahue</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --navy: #0f2d4a;
+      --blue: #1a5e9a;
+      --lightblue: #e8f2fb;
+      --muted: #6b7c8f;
+      --border: #dde6ef;
+      --text: #1c2b3a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .topbar {
+      background: var(--navy);
+      padding: 0.6rem 0;
+    }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar-nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .topbar a {
+      color: #a8c8e8;
+      font-size: 0.8rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .topbar a:hover { color: #fff; }
+    .topbar a.active { color: #fff; font-weight: 500; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-sub {
+      color: #b8d4ea;
+      font-size: 0.95rem;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 2rem;
+    }
+
+    /* CASE CARD */
+    .case-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+    }
+    .case-card:hover {
+      box-shadow: 0 4px 20px rgba(15,45,74,0.1);
+    }
+
+    .case-image {
+      width: 100%;
+      height: 100%;
+      min-height: 160px;
+      object-fit: cover;
+      display: block;
+      background: var(--lightblue);
+    }
+
+    .case-image-placeholder {
+      width: 100%;
+      min-height: 160px;
+      background: linear-gradient(135deg, var(--lightblue), #c5ddf5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .case-body {
+      padding: 1.5rem 1.5rem 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .case-meta {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.4rem;
+    }
+
+    .case-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+
+    .case-desc {
+      font-size: 0.87rem;
+      color: #3a4f62;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .case-tag {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--lightblue);
+      color: var(--navy);
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .case-link:hover { text-decoration: underline; }
+    .case-link svg { width: 14px; height: 14px; }
+
+    @media (max-width: 580px) {
+      .case-card { grid-template-columns: 1fr; }
+      .case-image-placeholder { min-height: 120px; }
+      .case-body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-nav">
+      <a href="index.html">Home</a>
+      <a href="cases.html" class="active">Case Work</a>
+    </div>
+    <a href="http://www.linkedin.com/in/colin-donahue-4311a418a" target="_blank">LinkedIn</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Case Work</h1>
+    <p class="hero-sub"></p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section-title">Public Matters</div>
+
+  <!-- CASE 1: VMware / Broadcom -->
+  <div class="case-card">
+    <img
+      class="case-image"
+      src="https://cdn.prod.website-files.com/63fce8e46edc5e5a5d6e7f95/65e9f1e2b3c8a7d4f0e12345_broadcom-vmware.jpg"
+      alt="Broadcom VMware acquisition"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+    <div class="case-image-placeholder" style="display:none; background: linear-gradient(135deg, #0f2d4a, #1a4a7a); color: white; font-size:1rem; font-weight:600; text-align:center; padding: 1rem;">BROADCOM<br/>× VMWARE</div>
+    <div class="case-body">
+      <div>
+        <div class="case-meta">Technology · Global Merger</div>
+        <div class="case-title">Acquisition of VMware by Broadcom</div>
+        <div class="case-tags">
+          <span class="case-tag">Antitrust</span>
+          <span class="case-tag">Merger Review</span>
+          <span class="case-tag">Technology</span>
+          <span class="case-tag">Multi-jurisdictional</span>
+        </div>
+      </div>
+      <a class="case-link" href="https://www.crai.com/engagements/global-team-of-economists-facilitates-successful-acquisition-of-vmware-by-broadcom/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        Read more at CRA
+      </a>
+    </div>
+  </div>
+
+  <!-- CASE 2: DICK'S / Foot Locker -->
+  <div class="case-card">
+    <img
+      class="case-image"
+      src="https://econicpartners.com/wp-content/uploads/2025/08/FTC-Clears-2.5-Billion-DICKS-Sporting-Goods-Foot-Locker-Merger-Without-Issuing-a-Second-Request-scaled-e1756389293851.jpg"
+      alt="DICK'S Sporting Goods and Foot Locker merger"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+    <div class="case-image-placeholder" style="display:none; background: linear-gradient(135deg, #1a1a1a, #3a3a3a); color: white; font-size:1rem; font-weight:600; text-align:center; padding: 1rem;">DICK'S<br/>× FOOT LOCKER</div>
+    <div class="case-body">
+      <div>
+        <div class="case-meta">Retail · FTC Merger Clearance</div>
+        <div class="case-title">Acquisition of Foot Locker by DICK'S Sporting Goods</div>
+        <div class="case-tags">
+          <span class="case-tag">Antitrust</span>
+          <span class="case-tag">FTC</span>
+          <span class="case-tag">Retail</span>
+          <span class="case-tag">Merger Clearance</span>
+        </div>
+      </div>
+      <a class="case-link" href="https://econicpartners.com/newsroom/cases/ftc-clears-2-5-billion-dicks-sporting-goods-foot-locker-merger-without-issuing-a-second-request/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        Read more at Econic Partners
+      </a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
