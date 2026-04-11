@@ -157,7 +157,7 @@
   <div class="hero-inner">
     <div class="hero-label">About</div>
     <h1>Colin Donahue</h1>
-    <p class="hero-sub" style="margin-bottom:0.8rem;">San Francisco, CA · Econometrician & Data Engineer</p>
+    <p class="hero-sub" style="margin-bottom:0.3rem;">San Francisco, CA · Econometrician & Data Engineer</p>
   </div>
   <svg viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;opacity:0.45;" id="gg"></svg>
 </div>
@@ -191,22 +191,22 @@ function cY(x){
   if(x>t2x){const sl=2*a*(t2x-mid);return cableY1+sl*(x-t2x)*0.6;}
   return cableMidY+a*Math.pow(x-mid,2);
 }
-const lAx=40,rAx=760;
+const lAx=100,rAx=700;
 const pd=`M${lAx} ${roadY-1}L${t1x} ${cableY1}Q${mid} ${cableMidY-6} ${t2x} ${cableY1}L${rAx} ${roadY-1}`;
 for(const off of [-2,0,2]){
-  svg.appendChild(el('path',{d:pd,fill:'none',stroke:col,'stroke-width':off===0?'2':'0.8',opacity:off===0?'1':'0.35'}));
+  svg.appendChild(el('path',{d:pd,fill:'none',stroke:col,'stroke-width':off===0?'1.2':'0.5',opacity:off===0?'1':'0.35'}));
 }
 for(let i=0;i<=38;i++){
   const x=t1x+(t2x-t1x)*(i/38);
-  svg.appendChild(el('line',{x1:x,y1:cY(x),x2:x,y2:roadY,stroke:col,'stroke-width':'0.7',opacity:'0.6'}));
+  svg.appendChild(el('line',{x1:x,y1:cY(x),x2:x,y2:roadY,stroke:col,'stroke-width':'0.4',opacity:'0.5'}));
 }
 for(let i=1;i<=7;i++){
   const x=t1x-i*(t1x-lAx)/8;
-  svg.appendChild(el('line',{x1:x,y1:cY(x),x2:x,y2:roadY,stroke:col,'stroke-width':'0.5',opacity:'0.35'}));
+  svg.appendChild(el('line',{x1:x,y1:cY(x),x2:x,y2:roadY,stroke:col,'stroke-width':'0.3',opacity:'0.3'}));
 }
 for(let i=1;i<=7;i++){
   const x=t2x+i*(rAx-t2x)/8;
-  svg.appendChild(el('line',{x1:x,y1:cY(x),x2:x,y2:roadY,stroke:col,'stroke-width':'0.5',opacity:'0.35'}));
+  svg.appendChild(el('line',{x1:x,y1:cY(x),x2:x,y2:roadY,stroke:col,'stroke-width':'0.3',opacity:'0.3'}));
 }
 svg.appendChild(el('rect',{x:lAx-5,y:roadY-6,width:10,height:12,fill:col,opacity:'0.8'}));
 svg.appendChild(el('rect',{x:rAx-5,y:roadY-6,width:10,height:12,fill:col,opacity:'0.8'}));
