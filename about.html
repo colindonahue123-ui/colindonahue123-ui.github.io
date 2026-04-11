@@ -42,7 +42,7 @@
 
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%);
-      padding: 4rem 2rem 0;
+      padding: 2rem 2rem 0;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -182,7 +182,7 @@ function cY(x){
   if(x>t2x){const sl=2*a*(t2x-mid);return cableY1+sl*(x-t2x)*0.6;}
   return cableMidY+a*Math.pow(x-mid,2);
 }
-const lAx=100,rAx=700;
+const lAx=160,rAx=640;
 const pd=`M${lAx} ${roadY-1}L${t1x} ${cableY1}Q${mid} ${cableMidY-6} ${t2x} ${cableY1}L${rAx} ${roadY-1}`;
 for(const off of [-2,0,2]){
   svg.appendChild(el('path',{d:pd,fill:'none',stroke:col,'stroke-width':off===0?'1.2':'0.5',opacity:off===0?'1':'0.35'}));
