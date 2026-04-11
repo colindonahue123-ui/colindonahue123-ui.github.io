@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | Colin Donahue</title>
+  <title>Colin Donahue</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -26,7 +26,10 @@
       line-height: 1.7;
     }
 
-    .topbar { background: var(--navy); padding: 0.6rem 0; }
+    .topbar {
+      background: var(--navy);
+      padding: 0.6rem 0;
+    }
     .topbar-inner {
       max-width: 760px;
       margin: 0 auto;
@@ -35,24 +38,21 @@
       justify-content: space-between;
       align-items: center;
     }
-    .topbar-nav { display: flex; gap: 1.5rem; }
-    .topbar a { color: #a8c8e8; font-size: 0.8rem; text-decoration: none; letter-spacing: 0.03em; }
+    .topbar a {
+      color: #a8c8e8;
+      font-size: 0.8rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
     .topbar a:hover { color: #fff; }
-    .topbar a.active { color: #fff; font-weight: 500; }
 
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%);
       padding: 4rem 2rem 3.5rem;
-      text-align: center;
     }
-    .hero-inner { max-width: 760px; margin: 0 auto; }
-    .hero-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #7ab8e8;
-      margin-bottom: 0.8rem;
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
     }
     .hero h1 {
       font-family: 'DM Sans', sans-serif;
@@ -61,8 +61,30 @@
       color: #ffffff;
       letter-spacing: -0.02em;
       margin-bottom: 0.8rem;
+      text-align: center;
     }
-    .hero-sub { color: #b8d4ea; font-size: 0.95rem; }
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tag {
+      background: rgba(255,255,255,0.12);
+      color: #c8dff0;
+      font-size: 0.78rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+    .hero-bio {
+      max-width: 100%;
+      color: #b8d4ea;
+      font-size: 0.97rem;
+      line-height: 1.75;
+      text-align: left;
+    }
 
     .container {
       max-width: 760px;
@@ -82,60 +104,78 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--blue);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
-    .split-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
+    .job { margin-bottom: 2rem; }
+    .job:last-child { margin-bottom: 0; }
 
-    .bio-text {
-      font-size: 0.95rem;
-      color: #2a3f52;
-      line-height: 1.85;
-    }
-    .bio-text p + p { margin-top: 1.2rem; }
-
-    .contact-block { margin-top: 1.5rem; }
-
-    .contact-link {
+    .job-top {
       display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.15rem;
+    }
+    .job-company {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .job-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--lightblue);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .job-title {
       font-size: 0.88rem;
       color: var(--blue);
-      text-decoration: none;
       font-weight: 500;
       margin-bottom: 0.6rem;
     }
-    .contact-link:hover { color: var(--navy); }
-    .contact-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .job-desc {
+      font-size: 0.88rem;
+      color: #3a4f62;
+      line-height: 1.75;
+      padding-left: 1rem;
+    }
+    .job-desc li { margin-bottom: 0.3rem; }
 
-    .media-col {
+    .edu { margin-bottom: 1.5rem; }
+    .edu:last-child { margin-bottom: 0; }
+    .edu-school { font-size: 1rem; font-weight: 600; color: var(--navy); }
+    .edu-degree { font-size: 0.88rem; color: var(--blue); font-weight: 500; }
+    .edu-detail { font-size: 0.82rem; color: var(--muted); margin-top: 0.1rem; }
+    .edu-thesis {
+      font-size: 0.82rem;
+      color: #3a4f62;
+      margin-top: 0.4rem;
+      padding: 0.6rem 0.8rem;
+      background: var(--lightblue);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .skills-grid {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tag {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--lightblue);
+      color: var(--navy);
+      border-radius: 4px;
+      font-weight: 500;
     }
 
-    .media-col img {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .media-col video {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-      background: #000;
-    }
-
-    @media (max-width: 560px) {
-      .split-layout { grid-template-columns: 1fr; }
+    @media (max-width: 520px) {
+      .job-top { flex-direction: column; }
     }
   </style>
 </head>
@@ -143,9 +183,8 @@
 
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="topbar-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="index.html" style="color:#fff;font-weight:500;">Home</a>
       <a href="cases.html">Case Work</a>
       <a href="thesis.html">Research</a>
     </div>
@@ -155,51 +194,109 @@
 
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-label">About</div>
     <h1>Colin Donahue</h1>
-    <p class="hero-sub">San Francisco, CA · Econometrician & Data Engineer</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Economics</span>
+      <span class="hero-tag">Data Science</span>
+      <span class="hero-tag">Causal Inference</span>
+      <span class="hero-tag">Research & Analysis</span>
+    </div>
+    <p class="hero-bio">
+      Econometrician and data engineer specializing in antitrust and M&A analysis.
+      I build data pipelines and apply econometric methods to answer complex economic and
+      legal questions — supporting merger reviews, litigation matters, and regulatory compliance.
+    </p>
   </div>
 </div>
 
 <div class="container">
+
   <div class="section">
-    <div class="split-layout">
+    <div class="section-title">Experience</div>
 
-      <div>
-        <div class="section-title">About Me</div>
-        <div class="bio-text">
-          <p>I'm a data engineer and econometrician based in San Francisco, specializing in building data infrastructure for antitrust and M&A analysis. Over the last four years I've designed and maintained pipelines that ingest, clean, and harmonize large-scale datasets from some of the world's largest companies — producing outputs submitted to the FTC and DOJ in support of merger reviews and litigation.</p>
-          <p>Outside of work, I love to travel, sail competitively, scuba dive, make short films and documentaries, and take care of honeybees. I'm also developing my first web application — a tool that helps renters and travelers identify neighborhoods that minimize commutes between their most frequented locations.</p>
-        </div>
-
-        <div class="contact-block">
-          <div class="section-title">Get In Touch</div>
-          <a class="contact-link" href="mailto:colin.b.donahue@gmail.com">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            colin.b.donahue@gmail.com
-          </a>
-          <a class="contact-link" href="http://www.linkedin.com/in/colin-donahue-4311a418a" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-            LinkedIn
-          </a>
-        </div>
+    <div class="job">
+      <div class="job-top">
+        <div class="job-company">Econic Partners</div>
+        <span class="job-date">Jul 2025 – Present</span>
       </div>
-
-      <div class="media-col">
-        <img src="Peru.JPG" alt="Peru" />
-        <img src="Sailing.jpg" alt="Sailing" />
-      </div>
-
+      <div class="job-title">Senior Research Analyst → Associate</div>
+      <ul class="job-desc">
+        <li>Built and maintained Databricks pipelines on Azure to ingest, process, and harmonize large multi-source datasets into reusable inputs for team economic analyses.</li>
+        <li>Developed reusable geospatial data pipelines integrating TIGER shapefiles, Census, and Google Places APIs to pull, clean, and spatially join thousands of locations; calculated and visualized market shares via choropleth maps across multiple client engagements.</li>
+        <li>Created a programmatic Claude API integration to semantically classify businesses into nuanced subtypes at scale, enabling downstream market share analyses.</li>
+        <li>Applied quasi-experimental methods to estimate the causal effects of AI pricing-algorithm adoption on rental market prices; findings informed litigation by the U.S. Department of Justice.</li>
+        <li>Led a team of 4 analysts through Second Request compliance for a multi-billion-dollar agentic AI merger, overseeing accurate and complete data productions across FTC submissions.</li>
+      </ul>
     </div>
 
-    <video autoplay muted loop playsinline controls style="width:100%;margin-top:1rem;border-radius:8px;display:block;background:#000;">
-      <source src="Bait ball.MOV" type="video/quicktime" />
-      <source src="Bait ball.MOV" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div class="job">
+      <div class="job-top">
+        <div class="job-company">Charles River Associates</div>
+        <span class="job-date">Jun 2022 – May 2025</span>
+      </div>
+      <div class="job-title">Analyst → Associate · Antitrust & Competition</div>
+      <ul class="job-desc">
+        <li>Performed advanced econometric analysis supporting antitrust merger reviews across manufacturing, pharmaceutical, retail, real estate, and computer software and services industries.</li>
+        <li>Proposed and evaluated divestiture packages for a $20B merger using market share and HHI analysis.</li>
+        <li>Utilized Databricks to analyze customer purchase data and estimate the effect of competitor store openings on the sales of 2,000 client stores using an event study model.</li>
+        <li>Facilitated calls with legal counsel by answering data questions and explaining economic analyses.</li>
+      </ul>
+    </div>
 
+    <div class="job">
+      <div class="job-top">
+        <div class="job-company">Swarthmore College, Dept. of Economics</div>
+        <span class="job-date">May – Aug 2021</span>
+      </div>
+      <div class="job-title">Econometrics Research Assistant</div>
+      <ul class="job-desc">
+        <li>Investigated effects of Paid Family Leave programs on food security in New York households using difference-in-difference and triple difference models in STATA.</li>
+      </ul>
+    </div>
   </div>
-</div>
 
+  <div class="section">
+    <div class="section-title">Education</div>
+
+    <div class="edu">
+      <div class="edu-school">Swarthmore College</div>
+      <div class="edu-degree">B.A. Economics · Minor in Mathematics & Statistics · Minor in Film & Media Studies</div>
+      <div class="edu-detail">2018 – 2022 · GPA 3.6</div>
+      <div class="edu-thesis">
+        <strong>Thesis:</strong> Online Nicotine Sales Restrictions on Adolescent Tobacco Use: Evidence from Arkansas' 2004 Ban.
+      </div>
+    </div>
+
+    <div class="edu">
+      <div class="edu-school">New York University</div>
+      <div class="edu-degree">Semester Abroad · Entrepreneurship & Business Technology</div>
+      <div class="edu-detail">Madrid, Spain · Spring 2020</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <span class="skill-tag">Econometrics</span>
+      <span class="skill-tag">Data Science</span>
+      <span class="skill-tag">Causal Inference</span>
+      <span class="skill-tag">Divestitures</span>
+      <span class="skill-tag">Structural Modeling</span>
+      <span class="skill-tag">Big Data</span>
+      <span class="skill-tag">Python (Pandas)</span>
+      <span class="skill-tag">STATA</span>
+      <span class="skill-tag">Databricks</span>
+      <span class="skill-tag">Azure (Blob Storage)</span>
+      <span class="skill-tag">PySpark</span>
+      <span class="skill-tag">LLM APIs</span>
+      <span class="skill-tag">ArcGIS</span>
+      <span class="skill-tag">GeoPandas</span>
+      <span class="skill-tag">HHI Analysis</span>
+      <span class="skill-tag">Event Study</span>
+      <span class="skill-tag">Diff-in-Diff</span>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
