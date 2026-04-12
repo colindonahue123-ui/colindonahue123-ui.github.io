@@ -378,10 +378,9 @@ for(const[cx,cy] of [[246,70],[541,22],[102,130],[621,70]]){
 
   <div class="section-title">Featured</div>
 
-  <!-- Card with left/right map strips -->
+  <!-- Card with left map strip only -->
   <div style="position:relative;">
     <svg viewBox="0 0 120 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:-130px;top:0;width:120px;height:100%;" id="mapleft"></svg>
-    <svg viewBox="0 0 120 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;right:-130px;top:0;width:120px;height:100%;" id="mapright"></svg>
 
     <div class="project-card">
     <div class="project-header">
@@ -393,7 +392,7 @@ for(const[cx,cy] of [[246,70],[541,22],[102,130],[621,70]]){
 
     <div class="project-body">
       <p class="project-desc">
-        A data warehouse of geospatial and economic characteristics across 100,000+ census blocks in every major U.S. city, covering crime, climate, public health, noise, business density, demographics, and more. The pipeline powers interactive maps that help users find their ideal neighborhood by calculating and minimizing commute times to frequented locations while scoring census blocks against a personalized set of characteristics weighted by importance. The result helps people visualize key aspects of their neighborhood to make an informed decision about where to rent.
+        A data warehouse of geospatial and economic characteristics across 100,000+ census blocks in every major U.S. city, covering crime, climate, public health, noise, business density, demographics, and more. The pipeline powers interactive maps that help users find their ideal neighborhood by minimizing commute times to frequented locations and scoring census blocks against a set of personal preferences. The result helps people visualize key aspects of their neighborhood to make an informed decision about where to rent.
       </p>
 
       <div class="project-stats">
@@ -416,7 +415,7 @@ for(const[cx,cy] of [[246,70],[541,22],[102,130],[621,70]]){
       <div class="project-section-title">Key Features</div>
       <ul class="feature-list">
         <li>Geospatial pipeline ingesting Census, crime, climate, public health, noise, and business data at the census block level</li>
-        <li>Commute minimization engine that finds neighborhoods reducing travel time between a user's most frequented locations</li>
+        <li>Commute minimization engine that ranks neighborhoods by total travel time across a user's most frequented locations</li>
         <li>Weighted preference scoring that ranks census blocks by how well they match user-defined characteristics</li>
         <li>Interactive choropleth maps that make complex real estate and economic data intuitive and visual</li>
       </ul>
@@ -442,9 +441,6 @@ for(const[cx,cy] of [[246,70],[541,22],[102,130],[621,70]]){
     </div>
     </div>
   </div>
-
-  <!-- Map imagery below card -->
-  <svg viewBox="0 0 760 60" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" id="mapbelow"></svg>
 
 </div>
 
@@ -472,29 +468,12 @@ function drawPins(svgId, pins, connections){
   }
 }
 
-// Below card
-drawPins('mapbelow', [
-  {cx:80,  cy:35, r:18},
-  {cx:240, cy:25, r:14},
-  {cx:420, cy:40, r:16},
-  {cx:580, cy:22, r:12},
-  {cx:700, cy:38, r:14},
-], [[0,1],[1,2],[2,3],[3,4]]);
-
 // Left side
 drawPins('mapleft', [
   {cx:60, cy:80,  r:28},
   {cx:40, cy:220, r:22},
   {cx:70, cy:380, r:26},
   {cx:45, cy:520, r:20},
-], [[0,1],[1,2],[2,3]]);
-
-// Right side
-drawPins('mapright', [
-  {cx:60, cy:100, r:26},
-  {cx:80, cy:260, r:22},
-  {cx:50, cy:400, r:28},
-  {cx:75, cy:540, r:20},
 ], [[0,1],[1,2],[2,3]]);
 
 })();
