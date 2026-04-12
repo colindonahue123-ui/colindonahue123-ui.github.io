@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Colin Donahue</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --navy: #0f2d4a;
+      --blue: #1a5e9a;
+      --lightblue: #e8f2fb;
+      --muted: #6b7c8f;
+      --border: #dde6ef;
+      --text: #1c2b3a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #ffffff;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    #page-map-bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.07;
+    }
+
+    .topbar, .hero, .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-body {
+      background: transparent;
+      position: relative;
+    }
+    .margin-map {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .topbar { background: var(--navy); padding: 0.6rem 0; }
+    .topbar-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar-nav { display: flex; gap: 1.5rem; }
+    .topbar a { color: #a8c8e8; font-size: 0.8rem; text-decoration: none; letter-spacing: 0.03em; }
+    .topbar a:hover { color: #fff; }
+    .topbar a.active { color: #fff; font-weight: 500; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .hero-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
+    .hero-tag { background: #2a6090; color: #e8f4ff; font-size: 0.78rem; padding: 0.25rem 0.9rem; border-radius: 20px; letter-spacing: 0.03em; border: 1px solid #4a80b0; }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      position: relative;
+    }
+    .container-map {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .section-title, .project-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+    }
+    .project-card:hover { box-shadow: 0 4px 20px rgba(15,45,74,0.1); }
+
+    .project-header {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%);
+      padding: 2rem 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-header svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+    }
+
+    .project-status {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: #2a6090;
+      color: #e8f4ff;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid #4a80b0;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-name {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-tagline {
+      font-size: 0.88rem;
+      color: #b8d4ea;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-body { padding: 1.8rem 2rem 2rem; }
+
+    .project-desc {
+      font-size: 0.93rem;
+      color: #2a3f52;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--lightblue);
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .project-section-title {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    .feature-list li {
+      font-size: 0.88rem;
+      color: #2a3f52;
+      line-height: 1.7;
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+    }
+    .feature-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 1rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tech-tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      background: var(--lightblue);
+      color: var(--navy);
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+    @media (max-width: 520px) {
+      .project-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<svg class="margin-map" viewBox="0 0 1600 1200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" id="marginmap"></svg>
+
+<script>
+(function(){
+const ns='http://www.w3.org/2000/svg';
+const col='#1a5e9a';
+function el(tag,attrs){const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);return e;}
+
+window.addEventListener('DOMContentLoaded', function(){
+  const bg=document.getElementById('containermap');
+  if(!bg) return;
+
+  const pins=[
+    {cx:80,  cy:120, r:40},
+    {cx:380, cy:80,  r:50},
+    {cx:650, cy:160, r:38},
+    {cx:150, cy:400, r:45},
+    {cx:500, cy:350, r:42},
+    {cx:680, cy:500, r:36},
+    {cx:200, cy:650, r:38},
+    {cx:580, cy:680, r:40},
+  ];
+
+  // Circles
+  for(const p of pins){
+    bg.appendChild(el('circle',{cx:p.cx,cy:p.cy,r:p.r,fill:'none',stroke:col,'stroke-width':'1.5',opacity:'0.35'}));
+  }
+
+  // Dashed lines
+  const connections=[[0,1],[1,2],[0,3],[1,4],[2,5],[3,4],[4,5],[3,6],[5,7],[6,7]];
+  for(const[a,b] of connections){
+    const pa=pins[a],pb=pins[b];
+    bg.appendChild(el('line',{x1:pa.cx,y1:pa.cy,x2:pb.cx,y2:pb.cy,stroke:col,'stroke-width':'1.2',opacity:'0.28','stroke-dasharray':'6,5'}));
+  }
+
+  // Pins
+  for(const p of pins){
+    const s=p.r*0.55, cx=p.cx, cy=p.cy;
+    bg.appendChild(el('circle',{cx,cy:cy-s*0.3,r:s*0.5,fill:'none',stroke:col,'stroke-width':'1.5',opacity:'0.4'}));
+    bg.appendChild(el('circle',{cx,cy:cy-s*0.3,r:s*0.2,fill:col,opacity:'0.3'}));
+    bg.appendChild(el('path',{d:`M${cx-s*0.3} ${cy-s*0.05} Q${cx} ${cy+s*0.75} ${cx} ${cy+s*0.85} Q${cx} ${cy+s*0.75} ${cx+s*0.3} ${cy-s*0.05}`,fill:col,opacity:'0.3'}));
+  }
+});
+})();
+</script>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="cases.html">Case Work</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="thesis.html">Research</a>
+    </div>
+    <a href="http://www.linkedin.com/in/colin-donahue-4311a418a" target="_blank">LinkedIn</a>
+  </div>
+</div>
+
+<div class="hero">
+  <svg viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.3;" id="censusmap"></svg>
+  <div class="hero-inner">
+    <h1>Projects</h1>
+  </div>
+</div>
+
+<script>
+(function(){
+const ns='http://www.w3.org/2000/svg';
+const col='#a8c8e8';
+function el(tag,attrs){const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);return e;}
+const svg=document.getElementById('censusmap');
+
+// Census block grid — irregular rectangles mimicking census blocks
+const blocks=[
+  {x:0,y:0,w:60,h:45},{x:62,y:0,w:80,h:45},{x:144,y:0,w:55,h:45},{x:201,y:0,w:90,h:45},{x:293,y:0,w:65,h:45},
+  {x:360,y:0,w:75,h:45},{x:437,y:0,w:60,h:45},{x:499,y:0,w:85,h:45},{x:586,y:0,w:70,h:45},{x:658,y:0,w:80,h:45},{x:740,y:0,w:60,h:45},
+  {x:0,y:47,w:60,h:55},{x:62,y:47,w:80,h:55},{x:144,y:47,w:55,h:55},{x:201,y:47,w:90,h:55},{x:293,y:47,w:65,h:55},
+  {x:360,y:47,w:75,h:55},{x:437,y:47,w:60,h:55},{x:499,y:47,w:85,h:55},{x:586,y:47,w:70,h:55},{x:658,y:47,w:80,h:55},{x:740,y:47,w:60,h:55},
+  {x:0,y:104,w:60,h:56},{x:62,y:104,w:80,h:56},{x:144,y:104,w:55,h:56},{x:201,y:104,w:90,h:56},{x:293,y:104,w:65,h:56},
+  {x:360,y:104,w:75,h:56},{x:437,y:104,w:60,h:56},{x:499,y:104,w:85,h:56},{x:586,y:104,w:70,h:56},{x:658,y:104,w:80,h:56},{x:740,y:104,w:60,h:56},
+];
+
+// Vary fill opacity to simulate choropleth shading
+const shades=[0.08,0.18,0.05,0.22,0.12,0.28,0.06,0.15,0.2,0.1,0.25,
+              0.14,0.08,0.22,0.1,0.18,0.26,0.07,0.2,0.12,0.16,0.09,
+              0.2,0.1,0.15,0.08,0.24,0.12,0.18,0.06,0.22,0.14,0.1];
+
+for(let i=0;i<blocks.length;i++){
+  const b=blocks[i];
+  svg.appendChild(el('rect',{x:b.x,y:b.y,width:b.w,height:b.h,fill:col,opacity:shades[i%shades.length]}));
+  svg.appendChild(el('rect',{x:b.x,y:b.y,width:b.w,height:b.h,fill:'none',stroke:col,'stroke-width':'0.8',opacity:'0.5'}));
+}
+
+// A few highlighted blocks (brighter — "selected" census blocks)
+for(const[x,y,w,h] of [[201,47,90,55],[499,0,85,45],[62,104,80,56],[586,47,70,55]]){
+  svg.appendChild(el('rect',{x,y,width:w,height:h,fill:col,opacity:'0.35'}));
+  svg.appendChild(el('rect',{x,y,width:w,height:h,fill:'none',stroke:col,'stroke-width':'1.5',opacity:'0.8'}));
+}
+
+// Small location pins on highlighted blocks
+for(const[cx,cy] of [[246,70],[541,22],[102,130],[621,70]]){
+  svg.appendChild(el('circle',{cx,cy:cy-8,r:'5',fill:'none',stroke:col,'stroke-width':'1.2',opacity:'0.9'}));
+  svg.appendChild(el('circle',{cx,cy:cy-8,r:'2',fill:col,opacity:'0.9'}));
+  svg.appendChild(el('path',{d:`M${cx-3} ${cy-4} Q${cx} ${cy+3} ${cx} ${cy+5} Q${cx} ${cy+3} ${cx+3} ${cy-4}`,fill:col,opacity:'0.9'}));
+}
+})();
+</script>
+
+<div class="container">
+
+  <div class="section-title">Featured</div>
+
+  <!-- Card with left/right map strips -->
+  <div style="position:relative;">
+    <svg viewBox="0 0 120 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:-130px;top:0;width:120px;height:100%;" id="mapleft"></svg>
+    <svg viewBox="0 0 120 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;right:-130px;top:0;width:120px;height:100%;" id="mapright"></svg>
+
+    <div class="project-card">
+    <div class="project-header">
+      <svg viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" id="mapbg"></svg>
+      <div class="project-status">In Development</div>
+      <div class="project-name">MapME</div>
+      <div class="project-tagline">Neighborhood intelligence for renters and travelers</div>
+    </div>
+
+    <div class="project-body">
+      <p class="project-desc">
+        A data warehouse of geospatial and economic characteristics across 100,000+ census blocks in every major U.S. city, covering crime, climate, public health, noise, business density, demographics, and more. The pipeline powers interactive maps that help users find their ideal neighborhood by calculating and minimizing commute times to frequented locations while scoring census blocks against a personalized set of characteristics weighted by importance. The result helps people visualize key aspects of their neighborhood to make an informed decision about where to rent.
+      </p>
+
+      <div class="project-stats">
+        <div class="stat-card">
+          <div class="stat-number">100K+</div>
+          <div class="stat-label">Census blocks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Every</div>
+          <div class="stat-label">Major U.S. city</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Data dimensions</div>
+        </div>
+      </div>
+
+      <hr class="divider"/>
+
+      <div class="project-section-title">Key Features</div>
+      <ul class="feature-list">
+        <li>Geospatial pipeline ingesting Census, crime, climate, public health, noise, and business data at the census block level</li>
+        <li>Commute minimization engine that finds neighborhoods reducing travel time between a user's most frequented locations</li>
+        <li>Weighted preference scoring that ranks census blocks by how well they match user-defined characteristics</li>
+        <li>Interactive choropleth maps that make complex real estate and economic data intuitive and visual</li>
+      </ul>
+
+      <hr class="divider"/>
+
+      <div class="project-section-title">Tech Stack</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Claude API</span>
+        <span class="tech-tag">Google Places API</span>
+        <span class="tech-tag">Yelp API</span>
+        <span class="tech-tag">GeoPandas</span>
+        <span class="tech-tag">TIGER Shapefiles</span>
+        <span class="tech-tag">OpenStreetMap</span>
+        <span class="tech-tag">Census API</span>
+        <span class="tech-tag">American Community Survey</span>
+        <span class="tech-tag">Bureau of Labor Statistics</span>
+        <span class="tech-tag">HUD Fair Market Rents</span>
+        <span class="tech-tag">Zillow</span>
+        <span class="tech-tag">Open Data</span>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Map imagery below card -->
+  <svg viewBox="0 0 760 60" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" id="mapbelow"></svg>
+
+</div>
+
+<script>
+(function(){
+const ns='http://www.w3.org/2000/svg';
+const col='#1a5e9a';
+function el(tag,attrs){const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);return e;}
+
+function drawPins(svgId, pins, connections){
+  const bg=document.getElementById(svgId);
+  if(!bg) return;
+  for(const p of pins){
+    bg.appendChild(el('circle',{cx:p.cx,cy:p.cy,r:p.r,fill:'none',stroke:col,'stroke-width':'1.5',opacity:'0.25'}));
+  }
+  for(const[a,b] of connections){
+    const pa=pins[a],pb=pins[b];
+    bg.appendChild(el('line',{x1:pa.cx,y1:pa.cy,x2:pb.cx,y2:pb.cy,stroke:col,'stroke-width':'1.2',opacity:'0.2','stroke-dasharray':'6,5'}));
+  }
+  for(const p of pins){
+    const s=p.r*0.55, cx=p.cx, cy=p.cy;
+    bg.appendChild(el('circle',{cx,cy:cy-s*0.3,r:s*0.5,fill:'none',stroke:col,'stroke-width':'1.5',opacity:'0.28'}));
+    bg.appendChild(el('circle',{cx,cy:cy-s*0.3,r:s*0.2,fill:col,opacity:'0.2'}));
+    bg.appendChild(el('path',{d:`M${cx-s*0.3} ${cy-s*0.05} Q${cx} ${cy+s*0.75} ${cx} ${cy+s*0.85} Q${cx} ${cy+s*0.75} ${cx+s*0.3} ${cy-s*0.05}`,fill:col,opacity:'0.2'}));
+  }
+}
+
+// Below card
+drawPins('mapbelow', [
+  {cx:80,  cy:35, r:18},
+  {cx:240, cy:25, r:14},
+  {cx:420, cy:40, r:16},
+  {cx:580, cy:22, r:12},
+  {cx:700, cy:38, r:14},
+], [[0,1],[1,2],[2,3],[3,4]]);
+
+// Left side
+drawPins('mapleft', [
+  {cx:60, cy:80,  r:28},
+  {cx:40, cy:220, r:22},
+  {cx:70, cy:380, r:26},
+  {cx:45, cy:520, r:20},
+], [[0,1],[1,2],[2,3]]);
+
+// Right side
+drawPins('mapright', [
+  {cx:60, cy:100, r:26},
+  {cx:80, cy:260, r:22},
+  {cx:50, cy:400, r:28},
+  {cx:75, cy:540, r:20},
+], [[0,1],[1,2],[2,3]]);
+
+})();
+</script>
+
+</body>
+</html>
