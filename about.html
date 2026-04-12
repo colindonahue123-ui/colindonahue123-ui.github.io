@@ -56,6 +56,8 @@
       margin-bottom: 0.2rem;
     }
     .hero-sub { color: #b8d4ea; font-size: 0.95rem; }
+    .hero-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.3rem; }
+    .hero-tag { background: #2a6090; color: #e8f4ff; font-size: 0.78rem; padding: 0.25rem 0.9rem; border-radius: 20px; letter-spacing: 0.03em; border: 1px solid #4a80b0; }
 
     .container {
       max-width: 760px;
@@ -142,7 +144,11 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-label">About Me</div>
-    <p class="hero-sub" style="margin-bottom:0.3rem;">San Francisco, CA · Econometrician & Data Engineer</p>
+    <div class="hero-tags">
+      <span class="hero-tag">San Francisco, CA</span>
+      <span class="hero-tag">Econometrician</span>
+      <span class="hero-tag">Data Engineer</span>
+    </div>
   </div>
 
   <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:1.4rem;right:7rem;width:50px;opacity:0.4;z-index:3;transform:rotate(-45deg);" id="bee"></svg>
@@ -282,9 +288,9 @@ for(const [x,y] of [[76,18],[62,20],[35,18],[14,12]]){
 
         <div class="contact-block">
           <div class="section-title">Get In Touch</div>
-          <a class="contact-link" href="mailto:colin.b.donahue@gmail.com">
+          <a class="contact-link" href="/cdn-cgi/l/email-protection#c9aaa6a5a0a7e7abe7ada6a7a8a1bcac89aea4a8a0a5e7aaa6a4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            colin.b.donahue@gmail.com
+            <span class="__cf_email__" data-cfemail="11727e7d787f3f733f757e7f7079647451767c70787d3f727e7c">[email&#160;protected]</span>
           </a>
           <a class="contact-link" href="http://www.linkedin.com/in/colin-donahue-4311a418a" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
@@ -302,12 +308,3 @@ for(const [x,y] of [[76,18],[62,20],[35,18],[14,12]]){
 
     <video autoplay muted loop playsinline style="width:100%;max-height:364px;object-fit:cover;margin-top:1rem;border-radius:8px;display:block;background:#000;">
       <source src="Bait ball.MOV" type="video/quicktime" />
-      <source src="Bait ball.MOV" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
-  </div>
-</div>
-
-</body>
-</html>
