@@ -15,169 +15,36 @@
       --border: #dde6ef;
       --text: #1c2b3a;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      line-height: 1.7;
-    }
-
-    .topbar {
-      background: var(--navy);
-      padding: 0.6rem 0;
-    }
-    .topbar-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; }
+    .topbar { background: var(--navy); padding: 0.6rem 0; }
+    .topbar-inner { max-width: 760px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
     .topbar-nav { display: flex; gap: 1.5rem; }
-    .topbar a {
-      color: #a8c8e8;
-      font-size: 0.8rem;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-    }
+    .topbar a { color: #a8c8e8; font-size: 0.8rem; text-decoration: none; letter-spacing: 0.03em; }
     .topbar a:hover { color: #fff; }
     .topbar a.active { color: #fff; font-weight: 500; }
-
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%);
-      padding: 3.5rem 2rem;
-      text-align: center;
-    }
-    .hero-inner { max-width: 760px; margin: 0 auto; }
-    .hero-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #7ab8e8;
-      margin-bottom: 0.8rem;
-    }
-    .hero h1 {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
-      color: #ffffff;
-      letter-spacing: -0.01em;
-      line-height: 1.35;
-      margin-bottom: 1rem;
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero-meta {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.82rem;
-      color: #b8d4ea;
-    }
-    .hero-meta span { display: flex; align-items: center; gap: 0.3rem; }
-
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 2rem 4rem;
-    }
-
-    .section {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%); padding: 3.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7ab8e8; margin-bottom: 0.8rem; }
+    .hero h1 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: clamp(1.4rem, 3.5vw, 2rem); color: #ffffff; letter-spacing: -0.01em; line-height: 1.35; margin-bottom: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .hero-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; font-size: 0.82rem; color: #b8d4ea; }
+    .hero-meta span { display: flex; align-items: center; gap: 0.3rem; background: rgba(255,255,255,0.12); padding: 0.25rem 0.9rem; border-radius: 20px; color: #c8dff0; font-size: 0.78rem; letter-spacing: 0.03em; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
     .section:last-child { border-bottom: none; }
-
-    .section-title {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 1.2rem;
-    }
-
-    .abstract {
-      font-size: 0.93rem;
-      color: #2a3f52;
-      line-height: 1.85;
-      border-left: 3px solid var(--blue);
-      padding-left: 1.2rem;
-      background: var(--lightblue);
-      padding: 1.2rem 1.4rem;
-      border-radius: 0 6px 6px 0;
-    }
-
-    .findings-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .finding-card {
-      background: var(--lightblue);
-      border-radius: 6px;
-      padding: 1.2rem;
-    }
-    .finding-number {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: var(--blue);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-    .finding-label {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.3rem;
-    }
-    .finding-desc {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .method-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .method-tag {
-      font-size: 0.8rem;
-      padding: 0.35rem 0.85rem;
-      background: var(--lightblue);
-      color: var(--navy);
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    .download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--navy);
-      color: #fff;
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 0.7rem 1.4rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
+    .section-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.2rem; }
+    .abstract { font-size: 0.93rem; color: #2a3f52; line-height: 1.85; border-left: 3px solid var(--blue); background: var(--lightblue); padding: 1.2rem 1.4rem; border-radius: 0 6px 6px 0; }
+    .findings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .finding-card { background: var(--lightblue); border-radius: 6px; padding: 1.2rem; }
+    .finding-number { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--blue); line-height: 1; margin-bottom: 0.4rem; }
+    .finding-label { font-size: 0.82rem; font-weight: 500; color: var(--navy); margin-bottom: 0.3rem; }
+    .finding-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+    .method-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .method-tag { font-size: 0.8rem; padding: 0.35rem 0.85rem; background: var(--lightblue); color: var(--navy); border-radius: 4px; font-weight: 500; }
+    .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--navy); color: #fff; font-size: 0.85rem; font-weight: 500; padding: 0.7rem 1.4rem; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
     .download-btn:hover { background: var(--blue); }
     .download-btn svg { width: 16px; height: 16px; }
-
-    @media (max-width: 520px) {
-      .findings-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 520px) { .findings-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -186,6 +53,7 @@
   <div class="topbar-inner">
     <div class="topbar-nav">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="cases.html">Case Work</a>
       <a href="thesis.html" class="active">Research</a>
     </div>
@@ -194,22 +62,91 @@
 </div>
 
 <div class="hero">
+  <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.22;" id="heroart"></svg>
   <div class="hero-inner">
     <div class="hero-label">Senior Thesis · Swarthmore College · 2022</div>
     <h1>Online Nicotine Sales Restrictions on Adolescent Tobacco Use: Evidence from Arkansas' 2004 Ban</h1>
     <div class="hero-meta">
       <span>Colin Donahue</span>
-      <span>·</span>
       <span>Advanced Econometrics</span>
-      <span>·</span>
       <span>May 2022</span>
     </div>
   </div>
 </div>
 
+<script>
+(function(){
+const ns='http://www.w3.org/2000/svg';
+const col='#a8c8e8';
+function el(tag,attrs){const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);return e;}
+function txt(x,y,content,size,op){const t=el('text',{x,y,'text-anchor':'start','font-size':size||'7',fill:col,'font-family':'serif',opacity:op||'0.4'});t.textContent=content;svg.appendChild(t);}
+const svg=document.getElementById('heroart');
+
+/* === SMOKE CLOUDS left side === */
+function cloud(cx, cy, scale, op) {
+  const circles = [
+    [0,0,18],[18,-8,14],[-16,-6,12],[10,10,12],[-8,10,10],[24,4,10],[-22,4,9],[32,-4,8]
+  ];
+  for(const[dx,dy,r]of circles){
+    svg.appendChild(el('circle',{cx:cx+dx*scale,cy:cy+dy*scale,r:r*scale,fill:'none',stroke:col,'stroke-width':'1',opacity:op}));
+  }
+}
+cloud(80, 60, 1.0, '0.32');
+cloud(50, 110, 0.8, '0.25');
+cloud(110, 140, 0.7, '0.22');
+cloud(60, 170, 0.6, '0.18');
+
+// wisps rising from bottom left
+for(const[x,y1,y2] of [[75,210,140],[100,215,155],[45,205,135]]){
+  svg.appendChild(el('path',{d:`M${x} ${y1} C${x-5} ${y1-20}, ${x+5} ${y1-40}, ${x} ${y2}`,fill:'none',stroke:col,'stroke-width':'0.8',opacity:'0.2','stroke-linecap':'round'}));
+}
+
+/* === LEGISLATION PAPERS center === */
+const papers=[
+  {x:230,y:55,w:115,h:145,rot:-5},
+  {x:238,y:48,w:115,h:145,rot:0},
+  {x:246,y:42,w:115,h:145,rot:4},
+];
+for(const p of papers){
+  svg.appendChild(el('rect',{x:p.x,y:p.y,width:p.w,height:p.h,rx:2,fill:'none',stroke:col,'stroke-width':'1.1',opacity:'0.38',transform:`rotate(${p.rot} ${p.x+p.w/2} ${p.y+p.h/2})`}));
+}
+// heading line
+svg.appendChild(el('line',{x1:256,y1:62,x2:316,y2:62,stroke:col,'stroke-width':'2',opacity:'0.42'}));
+// body text lines
+for(let i=0;i<8;i++){
+  const w=i%3===2?50:i%3===1?75:88;
+  svg.appendChild(el('line',{x1:256,y1:76+i*13,x2:256+w,y2:76+i*13,stroke:col,'stroke-width':'1',opacity:'0.28'}));
+}
+// seal
+svg.appendChild(el('circle',{cx:326,cy:172,r:13,fill:'none',stroke:col,'stroke-width':'1.2',opacity:'0.32'}));
+svg.appendChild(el('circle',{cx:326,cy:172,r:8,fill:'none',stroke:col,'stroke-width':'0.8',opacity:'0.22'}));
+svg.appendChild(el('circle',{cx:326,cy:172,r:3,fill:col,opacity:'0.18'}));
+
+/* === SMOKE CLOUDS right side === */
+function cloud(cx, cy, scale, op) {
+  const circles = [
+    [0,0,18],[18,-8,14],[-16,-6,12],[10,10,12],[-8,10,10],[24,4,10],[-22,4,9],[32,-4,8]
+  ];
+  for(const[dx,dy,r]of circles){
+    svg.appendChild(el('circle',{cx:cx+dx*scale,cy:cy+dy*scale,r:r*scale,fill:'none',stroke:col,'stroke-width':'1',opacity:op}));
+  }
+}
+cloud(580, 60, 1.0, '0.32');
+cloud(640, 100, 0.85, '0.26');
+cloud(700, 50, 0.7, '0.22');
+cloud(555, 120, 0.6, '0.2');
+cloud(680, 155, 0.75, '0.18');
+
+// small wisp lines rising from bottom into clouds
+for(const[x,y1,y2] of [[575,210,140],[620,215,155],[660,205,135],[700,210,150]]){
+  svg.appendChild(el('path',{d:`M${x} ${y1} C${x-5} ${y1-20}, ${x+5} ${y1-40}, ${x} ${y2}`,fill:'none',stroke:col,'stroke-width':'0.8',opacity:'0.2','stroke-linecap':'round'}));
+}
+
+})();
+</script>
+
 <div class="container">
 
-  <!-- ABSTRACT -->
   <div class="section">
     <div class="section-title">Abstract</div>
     <p class="abstract">
@@ -217,7 +154,6 @@
     </p>
   </div>
 
-  <!-- KEY FINDINGS -->
   <div class="section">
     <div class="section-title">Key Findings</div>
     <div class="findings-grid">
@@ -244,7 +180,6 @@
     </div>
   </div>
 
-  <!-- METHODOLOGY -->
   <div class="section">
     <div class="section-title">Methodology</div>
     <div class="method-list">
@@ -259,7 +194,6 @@
     </div>
   </div>
 
-  <!-- DOWNLOAD -->
   <div class="section">
     <div class="section-title">Full Paper</div>
     <a class="download-btn" href="thesis.pdf" target="_blank">
