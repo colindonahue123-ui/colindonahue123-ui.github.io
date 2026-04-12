@@ -193,14 +193,15 @@
   </div>
 </div>
 
-<div class="hero">
-  <div class="hero-inner">
+<div class="hero" style="padding-bottom:3.5rem;position:relative;overflow:hidden;">
+  <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18;" id="chip"></svg>
+  <div class="hero-inner" style="position:relative;z-index:2;">
     <h1>Colin Donahue</h1>
     <div class="hero-tags">
       <span class="hero-tag">Economics</span>
       <span class="hero-tag">Data Engineer</span>
-      <span class="hero-tag">Causal Inference</span>
       <span class="hero-tag">Research & Analysis</span>
+      <span class="hero-tag">Causal Inference</span>
     </div>
     <p class="hero-bio">
       Econometrician and data engineer specializing in antitrust and M&A analysis.
@@ -209,6 +210,39 @@
     </p>
   </div>
 </div>
+
+<script>
+(function(){
+const ns='http://www.w3.org/2000/svg';
+function el(tag,attrs){const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);return e;}
+const chip=document.getElementById('chip');
+const cellSize=20;
+const cols=Math.ceil(800/cellSize);
+const rows=Math.ceil(200/cellSize);
+for(let c=0;c<cols;c++){
+  for(let r=0;r<rows;r++){
+    const x=c*cellSize+1,y=r*cellSize+1;
+    const op=(Math.random()*0.5+0.2).toFixed(2);
+    chip.appendChild(el('rect',{x,y,width:cellSize-3,height:cellSize-3,rx:'1',fill:'none',stroke:'#a8c8e8','stroke-width':'0.6',opacity:op}));
+  }
+}
+const traceCount=20;
+for(let i=0;i<traceCount;i++){
+  const x1=Math.floor(Math.random()*700+20);
+  const y1=Math.floor(Math.random()*rows)*cellSize+cellSize/2;
+  const len=Math.floor(Math.random()*200+60);
+  const x2=Math.min(x1+len,798);
+  chip.appendChild(el('line',{x1,y1,x2,y2:y1,stroke:'#a8c8e8','stroke-width':'1.2',opacity:'0.35'}));
+  chip.appendChild(el('circle',{cx:x1,cy:y1,r:'2.5',fill:'#a8c8e8',opacity:'0.4'}));
+  chip.appendChild(el('circle',{cx:x2,cy:y1,r:'2.5',fill:'#a8c8e8',opacity:'0.4'}));
+  if(Math.random()>0.5){
+    const ymid=Math.floor(Math.random()*rows)*cellSize+cellSize/2;
+    chip.appendChild(el('line',{x1:x2,y1,x2,y2:ymid,stroke:'#a8c8e8','stroke-width':'1.2',opacity:'0.25'}));
+    chip.appendChild(el('circle',{cx:x2,cy:ymid,r:'2',fill:'#a8c8e8',opacity:'0.35'}));
+  }
+}
+})();
+</script>
 
 <div class="container">
 
