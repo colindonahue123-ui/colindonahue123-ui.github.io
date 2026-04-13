@@ -77,7 +77,6 @@
     }
 
     .container { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
-
     .section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
     .section:last-child { border-bottom: none; }
 
@@ -113,6 +112,8 @@
     .job-title { font-size: 0.88rem; color: var(--blue); font-weight: 500; margin-bottom: 0.6rem; }
     .job-desc { font-size: 0.88rem; color: #3a4f62; line-height: 1.75; padding-left: 1rem; }
     .job-desc li { margin-bottom: 0.3rem; }
+
+    .project-tagline { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 0.6rem; }
 
     .edu { margin-bottom: 1.5rem; }
     .edu:last-child { margin-bottom: 0; }
@@ -237,6 +238,19 @@ for(let i=0;i<traceCount;i++){
         <li>Applied quasi-experimental methods to estimate the causal effects of AI pricing-algorithm adoption on rental market prices; findings informed litigation by the U.S. Department of Justice.</li>
         <li>Created data infrastructure and models to evaluate divestiture packages across multiple rounds of market share and HHI analyses for a $20B merger under FTC review.</li>
         <li>Leveraged Databricks to analyze customer purchase data and estimate the effect of competitor store openings on the sales of 2,000 client stores using an event study model.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-company">MapME</div>
+        <span class="job-date">In Development</span>
+      </div>
+      <div class="job-title">Personal Project</div>
+      <div class="project-tagline">Data-driven tool helping renters identify their optimal neighborhood</div>
+      <ul class="job-desc">
+        <li>Built a data warehouse covering 100,000+ census blocks across every major U.S. city, integrating economic, real estate, and neighborhood data from Census, ACS, BLS, Google, Zillow, and Yelp.</li>
+        <li>Used the Claude API to clean and categorize data at scale; developed algorithms ranking neighborhoods by commute times and personal preferences, visualized as choropleth maps.</li>
       </ul>
     </div>
 
