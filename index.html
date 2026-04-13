@@ -26,10 +26,7 @@
       line-height: 1.7;
     }
 
-    .topbar {
-      background: var(--navy);
-      padding: 0.6rem 0;
-    }
+    .topbar { background: var(--navy); padding: 0.6rem 0; }
     .topbar-inner {
       max-width: 760px;
       margin: 0 auto;
@@ -38,22 +35,14 @@
       justify-content: space-between;
       align-items: center;
     }
-    .topbar a {
-      color: #a8c8e8;
-      font-size: 0.8rem;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-    }
+    .topbar a { color: #a8c8e8; font-size: 0.8rem; text-decoration: none; letter-spacing: 0.03em; }
     .topbar a:hover { color: #fff; }
 
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 100%);
       padding: 4rem 2rem 3.5rem;
     }
-    .hero-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
     .hero h1 {
       font-family: 'DM Sans', sans-serif;
       font-weight: 600;
@@ -87,16 +76,9 @@
       text-align: left;
     }
 
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 2rem 4rem;
-    }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
 
-    .section {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
     .section:last-child { border-bottom: none; }
 
     .section-title {
@@ -119,11 +101,7 @@
       gap: 0.5rem;
       margin-bottom: 0.15rem;
     }
-    .job-company {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
+    .job-company { font-size: 1rem; font-weight: 600; color: var(--navy); }
     .job-date {
       font-size: 0.78rem;
       color: var(--muted);
@@ -132,18 +110,8 @@
       border-radius: 4px;
       white-space: nowrap;
     }
-    .job-title {
-      font-size: 0.88rem;
-      color: var(--blue);
-      font-weight: 500;
-      margin-bottom: 0.6rem;
-    }
-    .job-desc {
-      font-size: 0.88rem;
-      color: #3a4f62;
-      line-height: 1.75;
-      padding-left: 1rem;
-    }
+    .job-title { font-size: 0.88rem; color: var(--blue); font-weight: 500; margin-bottom: 0.6rem; }
+    .job-desc { font-size: 0.88rem; color: #3a4f62; line-height: 1.75; padding-left: 1rem; }
     .job-desc li { margin-bottom: 0.3rem; }
 
     .edu { margin-bottom: 1.5rem; }
@@ -161,11 +129,7 @@
       border-radius: 0 4px 4px 0;
     }
 
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .skill-tag {
       font-size: 0.8rem;
       padding: 0.35rem 0.85rem;
@@ -175,9 +139,7 @@
       font-weight: 500;
     }
 
-    @media (max-width: 520px) {
-      .job-top { flex-direction: column; }
-    }
+    @media (max-width: 520px) { .job-top { flex-direction: column; } }
   </style>
 </head>
 <body>
@@ -260,8 +222,7 @@ for(let i=0;i<traceCount;i++){
       <ul class="job-desc">
         <li>Built and maintained Databricks pipelines on Azure to ingest, process, and harmonize large multi-source datasets into reusable inputs for econometric analyses.</li>
         <li>Developed geospatial data pipelines integrating TIGER shapefiles, Census data, and the Google Places API to pull, clean, and spatially join thousands of locations; calculated and visualized market shares via choropleth maps across multiple client engagements.</li>
-        <li>Applied quasi-experimental methods to estimate the causal effects of AI pricing-algorithm adoption on rental market prices; findings informed litigation by the U.S. Department of Justice.</li>
-        <li>Led a team of 4 analysts through Second Request compliance for a multi-billion-dollar agentic AI merger, overseeing accurate and complete data productions across FTC submissions.</li>
+        <li>Led a team of 4 analysts through Second Request compliance, overseeing data productions and diversion analyses supporting FTC clearance of a multi-billion-dollar agentic AI merger.</li>
       </ul>
     </div>
 
@@ -273,10 +234,12 @@ for(let i=0;i<traceCount;i++){
       <div class="job-title">Analyst → Associate · Antitrust & Competition</div>
       <ul class="job-desc">
         <li>Performed econometric analyses supporting antitrust merger reviews across manufacturing, retail, real estate, and tech industries; synthesized findings into reports for legal counsel and regulators.</li>
+        <li>Applied quasi-experimental methods to estimate the causal effects of AI pricing-algorithm adoption on rental market prices; findings informed litigation by the U.S. Department of Justice.</li>
         <li>Created data infrastructure and models to evaluate divestiture packages across multiple rounds of market share and HHI analyses for a $20B merger under FTC review.</li>
-        <li>Utilized Databricks to analyze customer purchase data and estimate the effect of competitor store openings on the sales of 2,000 client stores using an event study model.</li>
+        <li>Leveraged Databricks to analyze customer purchase data and estimate the effect of competitor store openings on the sales of 2,000 client stores using an event study model.</li>
       </ul>
     </div>
+
   </div>
 
   <div class="section">
